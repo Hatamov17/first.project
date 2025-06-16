@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Turkmenistanyn Telekommunikasiya we Informatika Instituty</title>
+    <style>
+      :root {
+        --primary: #1e3a8a;
+        --accent: #2563eb;
+        --bg: #f0f4f8;
+        --text: #1f2937;
+        --radius: 16px;
+      }
+      
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .head {
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        color: white;
+        padding: 30px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom-left-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+        text-align: center;
+        animation: fadeIn 1.5s ease forwards;
+      }
+      nav {
+        margin-top: 15px;
+      }
+      nav a {
+        display: inline-block;
+        margin: 0 15px;
+        color: #e0f2fe;
+        text-decoration: none;
+        font-weight: bold;
+        text-shadow: 0 0 8px #e0f2fe;
+        transition: transform 0.5s ease, color 0.7s ease, text-shadow 0.7s ease;
+      }
+      nav a:hover {
+        transform: scale(1.06);
+        color: white;
+        text-shadow: 0 0 17px white, 0 0 20px white;
+      }
+      .hero {
+        background: linear-gradient(to right, var(--accent), #3b82f6);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 0;
+        text-align: center;
+        animation: fadeIn 1.5s ease forwards;
+      }
+      .hero h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 22px;
+      }
+      #about {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 0px;
+        animation: fadeIn 1.5s ease forwards;
+      }
+      h3 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: var(--primary);
+      }
+      .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      #programs {
+        animation: fadeIn 1.5s ease forwards;
+      }
+      .program-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        border-radius: var(--radius);
+        padding: 30px;
+        box-shadow: 0 8px 24px #1e3a8a;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 32px #1e3a8a;
+      }
+      .card h4 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: var(--accent);
+      }
+
+      #faculties {
+        animation: fadeIn 1.5s ease forwards;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+        max-width: 500px;
+        background: white;
+        border-radius: var(--radius);
+        padding: 30px;
+        box-shadow: 0 8px 24px #1e3a8a;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+       .cards:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 32px #1e3a8a;
+      }
+      .cards h4 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: var(--accent);
+      }
+
+      #contact {
+        animation: fadeIn 1.5s ease forwards;
+      }
+
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 60px;
+        border-radius: var(--radius);
+        box-shadow: 0 6px 20px #1e3a8a;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+    .field-wrapper {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+       input, textarea {
+        width: 100%;
+        padding: 16px 12px;
+        font-size: 16px;
+        background: transparent;
+        border: 2px solid  #ccc;
+        border-radius: 10px;
+        color: #000;
+        margin-bottom: 15px;
+        outline: none;
+        transition: all 0.3s ease;
+        box-shadow: none;
+      }
+
+      input {
+        height: 40px;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #aaa;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      input:focus::placeholder,
+      textarea:focus::placeholder {
+        opacity: 0;
+      }
+
+       input:focus, textarea:focus {
+        border-color: var(--accent);
+        animation: neonGlow 1.5s ease-in-out infinite alternate;
+       }
+
+       label {
+        position: absolute;
+        top: 2px;
+        left: 15px;
+        font-size: 18px;
+        color: #888;
+        pointer-events: none;
+        transition: all 0.3s;
+       }
+
+       input:focus + label,
+       textarea:focus + label,
+       input:not(:placeholder-shown) + label,
+       textarea:not(:placeholder-shown) + label {
+        top: -20px;
+        left: 2px;
+        font-size: 23px;
+        color: var(--accent);
+        text-shadow: 0 0 6px var(--accent);
+        transform: translateY(-22px) scale(0.85);
+       }
+
+       textarea {
+        resize: vertical;
+        min-height: 100px;
+       }
+      
+      form button {
+        position: relative;
+        width: 270px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        color: white;
+        padding: 14px 30px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: 0 0 10px #2563eb;
+        z-index: 1;
+        }
+        
+        form button::before {
+            content: '';
+            position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        background: linear-gradient(-90deg, var(--primary), var(--accent));
+        opacity: 0;
+        transition: opacity 0.9s ease, box-shadow 0.9s ease;
+        z-index: -1
+        }
+        form button:hover::before {
+            opacity: 1;
+        box-shadow: 0 0 15px #2563eb, 0 0 20px#2563eb;
+        }
+        footer {
+            background: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        animation: fadeIn 1.5s ease forwards;
+    }
+    footer a {
+        color: #f0f4f8;
+    }
+    @keyframes neonGlow {
+     0% {
+         box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+     }
+     100% {
+         box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+     }
+    }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .head {
+          max-width: 100%;
+          max-height: 150px;
+        }
+
+        .head h1  {
+          font-size: 17px;
+        }
+
+        .head a {
+          font-size: 12px;
+        }
+
+        .hero {
+          max-height: 200px;
+        }
+
+        .hero h2{
+          font-size: 17px;
+        }
+
+        .hero p {
+          font-size: 15px;
+        }
+
+        #about h3 {
+          font-size: 30px;
+        }
+
+        .about-content p {
+          font-size: 15px;
+        }
+
+        #programs h3 {
+          font-size: 30px;
+        }
+
+        .program-grid {
+          max-width: 370px;
+        }
+
+        #faculties h1 {
+          font-size: 30px;
+        }
+
+        #faculties .cards {
+          max-width: 360px;
+          font-size: 12px;
+        }
+
+        #contact h3 {
+          font-size: 30px;
+          margin-top: 90px;
+        }
+
+        form {
+          max-width: 400px;
+        }
+
+        form input, form textarea {
+          width: 100%;
+        }
+
+        form input {
+          height: 45px;
+          font-size: 14px;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <header class="head">
+      <h1> The Institute of Telecommunications and Informatics of Turkmenistan</h1>
+      <nav>
+        <a href="#about">About Us</a>
+        <a href="#programs">Programs</a>
+        <a href="#faculties">Faculties</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h2>The institute that creates the digital future</h2>
+      <p>Leading educational center for informatics and telecommunications</p>
+    </div>
+
+    <section id="about">
+      <h3>About Us</h3>
+      <div class="about-content">
+        <p>
+          The Institute of Telecommunications and Informatics of Turkmenistan is
+          one of the leading higher education institutions in providing
+          high-quality education. The goal of the institute is to train modern
+          specialists in the fields of digital education, information security,
+          and communications.
+        </p>
+      </div>
+    </section>
+
+    <section id="programs">
+      <h3>Study Programs</h3>
+      <div class="program-grid">
+        <div class="card">
+          <h4>Informatic</h4>
+          <p>
+            Training in programming, databases, and web technologies.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Telecommunication</h4>
+          <p>Communication systems, network architecture and signal processing.</p>
+        </div>
+        <div class="card">
+          <h4>Information Security</h4>
+          <p>Security strategies, encryption and data protection.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faculties">
+      <h1
+        style="
+          text-align: center;
+          margin-bottom: 20px;
+          margin-top: 40px;
+          font-size: 40px;
+          color: var(--primary);
+        "
+      >
+        Faculties
+      </h1>
+        <div class="cards">
+          <h4>Information System Security</h4>
+      </div>
+      <div class="cards">
+        <h4>Communication</h4>
+      </div>
+      <div class="cards">
+        <h4>Economy</h4>
+      </div>
+      <div class="cards">
+        <h4>Telecommunication</h4>
+      </div>
+      <div class="cards">
+        <h4>Production and Automation</h4>
+      </div>
+      <div class="cards">
+        <h4>Professional Development</h4>
+      </div>
+      <div class="cards">
+        <h4>Information Technology and Programming</h4>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact Us</h3>
+      <form>
+        <div class="field-wrapper">
+          <input type="text" placeholder="" id="name" required />
+          <label for="name">Name</label>
+        </div>
+
+        <div class="field-wrapper">
+          <input type="email" placeholder="" id="email" required/>
+          <label for="email">E-mail</label>
+        </div>
+        <div class="field-wrapper">
+          <textarea rows="5" placeholder="" id="comment" required></textarea>
+          <label for="comment">Comment . . .</label>
+        </div>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+      &copy; 2025 Institute of Telecommunications and Informatics of Turkmenistan.
+      <a href="#">Privacy Policy.</a> 
+      <a href="#">Terms of  Service.</a>
+    </footer>
+  </body>
+</html>
